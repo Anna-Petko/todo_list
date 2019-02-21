@@ -5,6 +5,7 @@ public class Task {
     private String deadline;
     private String projectName;
 
+
     //Constructor to create a task
     public Task(String tasksName, String deadline, String projectName) {
         this.tasksName = tasksName;
@@ -25,6 +26,9 @@ public class Task {
     //Update task's project
     public void setProjectName(String projectName){
         this.projectName = projectName;
+    }
+    public void sayHello() {
+        System.out.println("hello");
     }
 
 
