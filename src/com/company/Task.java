@@ -15,6 +15,7 @@ public class Task {
 
     //Update task's name
     public void setTasksName(String tasksName){
+
         this.tasksName = tasksName;
     }
 
@@ -27,9 +28,5 @@ public class Task {
     public void setProjectName(String projectName){
         this.projectName = projectName;
     }
-    public void sayHello() {
-        System.out.println("hello");
-    }
-
 
 }
