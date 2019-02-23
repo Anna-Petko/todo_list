@@ -22,7 +22,5 @@ public class TasksList {
         tasksList.remove(task);
     }
     //Deleting a task from task list
-    public void removeTask(Task task){
-        tasksList.remove(task);
-    }
+
 }
