@@ -2,6 +2,7 @@ package com.company;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+
 public class Main {
     public static void main(String[] args) throws Exception { //handle this later
         String date = "02/03/2022";
@@ -18,6 +19,5 @@ public class Main {
         collection.addTasksToList(first);
         System.out.println(collection);
         System.out.println(collection.getTask(0));
-
     }
 }

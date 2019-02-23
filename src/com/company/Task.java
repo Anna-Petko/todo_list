@@ -9,6 +9,7 @@ public class Task {
     private String status;
     private SimpleDateFormat dateFormatter;
 
+
     //Constructor to create a task
     public Task(String tasksName, Date deadline, SimpleDateFormat dateFormatter, String projectName, String status) {
         this.tasksName = tasksName;
@@ -20,6 +21,7 @@ public class Task {
 
     //Update task's name
     public void setTasksName(String tasksName){
+
         this.tasksName = tasksName;
     }
 
@@ -34,6 +36,7 @@ public class Task {
     }
 
     public String toString(){
+
         return tasksName + ", " + dateFormatter.format(deadline) + ", " + projectName + ", " + status + "," ;
     }
 }
