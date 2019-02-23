@@ -17,11 +17,12 @@ public class TasksList {
         return tasksList.get(index).toString();
     }
 
+    //Deleting a task from a task list
+    public void removeTask(Task task) {
+        tasksList.remove(task);
+    }
     //Deleting a task from task list
     public void removeTask(Task task){
         tasksList.remove(task);
     }
-
-
-
 }
