@@ -8,9 +8,20 @@ public class TasksList {
     public TasksList(){
        tasksList = new ArrayList<Task>();
     }
+
     public void addTasksToList(Task task){
         tasksList.add(task);
-
     }
+
+    public String getTask(int index){
+        return tasksList.get(index).toString();
+    }
+
+    //Deleting a task from task list
+    public void removeTask(Task task){
+        tasksList.remove(task);
+    }
+
+
 
 }

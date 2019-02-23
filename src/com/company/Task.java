@@ -4,6 +4,7 @@ public class Task {
     private String tasksName;
     private String deadline;
     private String projectName;
+    private String status;
 
 
     //Constructor to create a task
@@ -27,6 +28,10 @@ public class Task {
     //Update task's project
     public void setProjectName(String projectName){
         this.projectName = projectName;
+    }
+
+    public String toString(){
+        return tasksName + "," + deadline + "," + projectName + "," + status + "," ;
     }
 
 }
