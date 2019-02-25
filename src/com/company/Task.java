@@ -21,7 +21,6 @@ public class Task {
 
     //Update task's name
     public void setTasksName(String tasksName){
-
         this.tasksName = tasksName;
     }
 
@@ -35,8 +34,11 @@ public class Task {
         this.projectName = projectName;
     }
 
-    public String toString(){
+    public String getProjectName() {
+        return projectName;
+    }
 
+    public String toString(){
         return tasksName + ", " + dateFormatter.format(deadline) + ", " + projectName + ", " + status + "," ;
     }
 }
