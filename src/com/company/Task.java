@@ -1,22 +1,24 @@
 package com.company;
-import java.util.Date;
-import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 
 public class Task {
     private String tasksName;
-    private Date deadline;
+    private LocalDate deadline;
     private String projectName;
     private String status;
-    private SimpleDateFormat dateFormatter;
+    private DateTimeFormatter formatter;
+
 
 
     //Constructor to create a task
-    public Task(String tasksName, Date deadline, SimpleDateFormat dateFormatter, String projectName, String status) {
+    public Task(String tasksName, LocalDate deadline, DateTimeFormatter formatter, String projectName, String status) {
         this.tasksName = tasksName;
         this.deadline = deadline;
         this.projectName = projectName;
         this.status = status;
-        this.dateFormatter = dateFormatter;
+        this.formatter = formatter;
     }
 
     //Update task's name
@@ -25,7 +27,7 @@ public class Task {
     }
 
     //Update task's date
-    public void setDeadline(Date deadline){
+    public void setDeadline(LocalDate deadline){
         this.deadline = deadline;
     }
 
@@ -38,7 +40,11 @@ public class Task {
         return projectName;
     }
 
+    public LocalDate getDeadline(){
+        return deadline;
+    }
+
     public String toString(){
-        return tasksName + ", " + dateFormatter.format(deadline) + ", " + projectName + ", " + status + "," ;
+        return tasksName + ", " + deadline  + ", " + projectName + ", " + status + "," ;
     }
 }
