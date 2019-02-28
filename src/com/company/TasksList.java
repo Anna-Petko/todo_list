@@ -6,7 +6,7 @@ public class TasksList {
     private ArrayList<Task> tasksList;
 
     public TasksList(){
-       tasksList = new ArrayList<Task>();
+       tasksList = new ArrayList<>();
     }
 
     public void addTasksToList(Task task){
@@ -21,6 +21,17 @@ public class TasksList {
     public void removeTask(Task task) {
         tasksList.remove(task);
     }
-    //Deleting a task from task list
+
+    public void showTaskByProjectName(String projectName) {
+        ArrayList<Task> filteredTasks = new ArrayList<>();
+        for (Task t : tasksList) {
+            if (t.getProjectName() == projectName) {
+                filteredTasks.add(t);
+            }
+        }
+        for (int i = 0; i < filteredTasks.size(); i++) {
+            System.out.println("Project Name : " + filteredTasks.get(i).getProjectName());
+        }
+    }
 
 }
