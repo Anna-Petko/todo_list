@@ -1,27 +1,29 @@
 package com.company;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 
 public class Main {
     public static void main(String[] args) throws Exception { //handle this later
-        String date = "02/03/2022";
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/mm/yyyy");
-
-        //catch exception if user enters something incorrect
-        Date realDate = formatter.parse(date);
-
-        Task first = new Task("finish smth", realDate, formatter,"noName", "in progress");
+        String input = "02/03/1994";
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        LocalDate realDate = LocalDate.parse(input, formatter);
+        //System.out.println(realDate);
+        Task first = new Task("finish smth", realDate, formatter, "noName", "in progress");
         Task second = new Task("call", realDate, formatter, "other", "notDone");
-
-        TasksList task1 = new TasksList();
-        task1.addTasksToList(first);
         TasksList collection = new TasksList();
+
         collection.addTasksToList(first);
         collection.addTasksToList(second);
-        System.out.println(collection.getTask(0));
-        System.out.println(collection.getTask(1));
+
         collection.showTaskByProjectName("noName");
+        String input1 = "02/03/1994";
+        LocalDate localDate = LocalDate.parse(input1, formatter);
+
+        collection.showTasksByDate(localDate);
 
     }
 }
+
+
+

@@ -1,5 +1,7 @@
 package com.company;
+import java.time.LocalDate;
 import java.util.ArrayList;
+
 
 public class TasksList {
 
@@ -31,6 +33,17 @@ public class TasksList {
         }
         for (int i = 0; i < filteredTasks.size(); i++) {
             System.out.println("Project Name : " + filteredTasks.get(i).getProjectName());
+        }
+    }
+    public void showTasksByDate(LocalDate deadline) {
+        ArrayList<Task> filteredTask = new ArrayList<>();
+        for(Task t : tasksList) {
+            if(t.getDeadline().isEqual(deadline)){
+                filteredTask.add(t);
+            }
+        }
+        for(int i = 0; i < filteredTask.size(); i++){
+            System.out.println("Deadline: " + filteredTask.get(i).getDeadline());
         }
     }
 
