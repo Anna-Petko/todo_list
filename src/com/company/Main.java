@@ -1,14 +1,14 @@
 package com.company;
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-
 public class Main {
-    public static void main(String[] args) throws Exception { //handle this later
+    public static void main(String[] args) {
         String input = "02/03/1994";
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         LocalDate realDate = LocalDate.parse(input, formatter);
-        //System.out.println(realDate);
+        System.out.println(realDate);
         Task first = new Task("finish smth", realDate, formatter, "noName", "in progress");
         Task second = new Task("call", realDate, formatter, "other", "notDone");
         TasksList collection = new TasksList();
@@ -21,6 +21,12 @@ public class Main {
         LocalDate localDate = LocalDate.parse(input1, formatter);
 
         collection.showTasksByDate(localDate);
+        UserInput ui = new UserInput();
+        ui.insertDataForTask(collection.getTasksList());
+
+        for (int i = 0; i < collection.getTaskListSize(); i++) {
+            System.out.println(collection.getTask(i));
+        }
 
     }
 }
