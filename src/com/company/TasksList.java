@@ -19,6 +19,10 @@ public class TasksList {
         return tasksList.get(index).toString();
     }
 
+    public int getTaskListSize(){
+        return tasksList.size();
+    }
+
     //Deleting a task from a task list
     public void removeTask(Task task) {
         tasksList.remove(task);
@@ -45,6 +49,10 @@ public class TasksList {
         for(int i = 0; i < filteredTask.size(); i++){
             System.out.println("Deadline: " + filteredTask.get(i).getDeadline());
         }
+    }
+
+    public ArrayList<Task> getTasksList(){
+        return tasksList;
     }
 
 }

@@ -10,8 +10,6 @@ public class Task {
     private String status;
     private DateTimeFormatter formatter;
 
-
-
     //Constructor to create a task
     public Task(String tasksName, LocalDate deadline, DateTimeFormatter formatter, String projectName, String status) {
         this.tasksName = tasksName;
