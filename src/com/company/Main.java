@@ -1,29 +1,17 @@
 package com.company;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-
 public class Main {
     public static void main(String[] args) {
-        String input = "02/03/1994";
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        LocalDate realDate = LocalDate.parse(input, formatter);
-        System.out.println(realDate);
-        Task first = new Task("finish smth", realDate, formatter, "noName", "in progress");
-        Task second = new Task("call", realDate, formatter, "other", "notDone");
+
+        //Create a new TaskList object that will store added tasks
         TasksList collection = new TasksList();
 
-        collection.addTasksToList(first);
-        collection.addTasksToList(second);
-
-        collection.showTaskByProjectName("noName");
-        String input1 = "02/03/1994";
-        LocalDate localDate = LocalDate.parse(input1, formatter);
-
-        collection.showTasksByDate(localDate);
+        //Create a new UserInput object
         UserInput ui = new UserInput();
+        //Show added tasks into TaskList object
         ui.insertDataForTask(collection.getTasksList());
 
+        //Print out all tasks from TaskList object
         for (int i = 0; i < collection.getTaskListSize(); i++) {
             System.out.println(collection.getTask(i));
         }
