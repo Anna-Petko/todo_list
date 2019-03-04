@@ -3,6 +3,10 @@ package com.company;
 public class Main {
     public static void main(String[] args) {
 
+        //Call the Main menu
+        Menu menu = new Menu();
+        menu.showMenu();
+
         //Create a new TaskList object that will store added tasks
         TasksList collection = new TasksList();
 
