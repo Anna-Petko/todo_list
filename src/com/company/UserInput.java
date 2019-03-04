@@ -9,6 +9,10 @@ public class UserInput {
     Scanner userInput = new Scanner(System.in);
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
+   public String toString(){
+        return userInput.nextLine();
+    }
+
     public void insertDataForTask(ArrayList<Task> tasksList){
 
         System.out.println("Create a title's name ");
@@ -23,6 +27,7 @@ public class UserInput {
 
         System.out.println("Define a status of a task");
         String status = userInput.nextLine();
+
         //Here we add a created task to a created taskList
         tasksList.add(new Task(taskName, deadline, formatter, projectName, status));
 

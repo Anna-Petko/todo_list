@@ -54,5 +54,4 @@ public class TasksList {
     public ArrayList<Task> getTasksList(){
         return tasksList;
     }
-
 }
