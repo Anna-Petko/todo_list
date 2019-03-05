@@ -9,7 +9,7 @@ public class UserInput {
     Scanner userInput = new Scanner(System.in);
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
-   public String toString(){
+    public String getUserInput(){
         return userInput.nextLine();
     }
 
@@ -32,5 +32,4 @@ public class UserInput {
         tasksList.add(new Task(taskName, deadline, formatter, projectName, status));
 
     }
-
 }
