@@ -2,9 +2,15 @@ package com.company;
 
 
 public class Menu {
+    private TasksList collection;
+    private UserInput taskInput;
 
-    public void showMenu(){
-        System.out.println(">> Welcome to ToDoLy");
+    public Menu(){
+        this.collection = new TasksList();
+        this.taskInput = new UserInput();
+    }
+
+    public void showMenu() {
         System.out.println(">> You have X tasks todo and Y tasks are done! ");
         System.out.println(">> Pick an option:");
         System.out.println(">> (1) Show Task List (by date or project)");
@@ -12,19 +18,20 @@ public class Menu {
         System.out.println(">> (3) Edit Task (update, mark as done, remove)");
         System.out.println(">> (4) Save and Quit ");
         System.out.println(">>");
-
-        int track = 0;
-        while(track == 0) {
-            UserInput chooseOption = new UserInput();
-            String option = chooseOption.toString();
+    }
+    public void loop(){
+        System.out.println(">> Welcome to ToDoLy");
+        while(true) {
+            showMenu();
+            String option = taskInput.getUserInput();
             switch (option) {
-                case "1" :
+                case "1":
                     System.out.println("show tasklist");
                     break;
                 case "2":
-                    TasksList collection = new TasksList();
-                    UserInput task = new UserInput();
-                    task.insertDataForTask(collection.getTasksList());
+//                    TasksList collection = new TasksList();
+//                    UserInput task = new UserInput();
+                    taskInput.insertDataForTask(collection.getTasksList());
                     break;
                 case "3":
                     System.out.println("edit");
@@ -34,6 +41,7 @@ public class Menu {
                     break;
                 default:
                     System.out.println("Invalid option");
+                    break;
             }
         }
     }
