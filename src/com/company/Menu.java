@@ -19,7 +19,7 @@ public class Menu {
         System.out.println(">> (4) Save and Quit ");
         System.out.println(">>");
     }
-    public void loop(){
+    public void chooseCommand(){
         System.out.println(">> Welcome to ToDoLy");
         while(true) {
             showMenu();

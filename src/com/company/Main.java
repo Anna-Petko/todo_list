@@ -5,8 +5,7 @@ public class Main {
 
         //Show the Main menu
         Menu menu = new Menu();
-        menu.loop();
-
+        menu.chooseCommand();
 
 
         //Print out all tasks from TaskList object
