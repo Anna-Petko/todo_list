@@ -1,6 +1,7 @@
 package com.company;
 
-import java.util.ArrayList;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class Menu {
     private TasksList collection;
@@ -27,16 +28,26 @@ public class Menu {
             String option = taskInput.getUserInput();
             switch (option) {
                 case "1":
-                    System.out.println("Please insert the name of the project");
-                    String projectName = new UserInput().getUserInput();
+//                    System.out.println("Please insert the name of the project");
+//                    String projectName = new UserInput().getUserInput();
+//                    if(collection.getTaskListSize() == 0) {
+//                        System.out.println("Your task list is empty. Please create and add a task");
+//                    } else if (collection.containsProjectName(projectName)) {
+//                        collection.showTaskByProjectName(projectName);
+//                    } else {
+//                        System.out.println("There is no such project. Try other name");
+//                    }
+                    System.out.println("Please insert the date");
+                    String deadline = new UserInput().getUserInput();
+                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+                    LocalDate date = LocalDate.parse(deadline, formatter);
                     if(collection.getTaskListSize() == 0) {
                         System.out.println("Your task list is empty. Please create and add a task");
-                    } else if (collection.containsProjectName(projectName)) {
-                        collection.showTaskByProjectName(projectName);
+                    } else if (collection.containsProjectName(date)) {
+                        collection.showTasksByDate(date);
                     } else {
-                        System.out.println("There is no such project. Try other name");
+                        System.out.println("There are no tasks for this date. Try another one");
                     }
-                    //System.out.println(collection.getTasksList());
                     break;
                 case "2":
 //                    TasksList collection = new TasksList();

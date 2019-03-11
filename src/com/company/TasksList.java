@@ -64,4 +64,15 @@ public class TasksList {
         }
        return false;
     }
+
+    public boolean containsProjectName(LocalDate deadline){
+        for(Task task: tasksList){
+            if (task.getDeadline().isEqual(deadline)){
+                return true;
+            }
+        }
+        return false;
+    }
 }
+
+
