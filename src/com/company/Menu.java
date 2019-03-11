@@ -1,5 +1,6 @@
 package com.company;
 
+import java.util.ArrayList;
 
 public class Menu {
     private TasksList collection;
@@ -26,7 +27,16 @@ public class Menu {
             String option = taskInput.getUserInput();
             switch (option) {
                 case "1":
-                    System.out.println("show tasklist");
+                    System.out.println("Please insert the name of the project");
+                    String projectName = new UserInput().getUserInput();
+                    if(collection.getTaskListSize() == 0) {
+                        System.out.println("Your task list is empty. Please create and add a task");
+                    } else if (collection.containsProjectName(projectName)) {
+                        collection.showTaskByProjectName(projectName);
+                    } else {
+                        System.out.println("There is no such project. Try other name");
+                    }
+                    //System.out.println(collection.getTasksList());
                     break;
                 case "2":
 //                    TasksList collection = new TasksList();

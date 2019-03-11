@@ -31,14 +31,15 @@ public class TasksList {
     public void showTaskByProjectName(String projectName) {
         ArrayList<Task> filteredTasks = new ArrayList<>();
         for (Task t : tasksList) {
-            if (t.getProjectName() == projectName) {
+            if (t.getProjectName().equals(projectName)) {
                 filteredTasks.add(t);
             }
         }
         for (int i = 0; i < filteredTasks.size(); i++) {
-            System.out.println("Project Name : " + filteredTasks.get(i).getProjectName());
+            System.out.println("Your tasks for the project "+ projectName + ": " + filteredTasks.get(i));
         }
     }
+
     public void showTasksByDate(LocalDate deadline) {
         ArrayList<Task> filteredTask = new ArrayList<>();
         for(Task t : tasksList) {
@@ -53,5 +54,14 @@ public class TasksList {
 
     public ArrayList<Task> getTasksList(){
         return tasksList;
+    }
+
+    public boolean containsProjectName(String projectName) {
+        for(Task task: tasksList){
+            if(task.getProjectName().equals(projectName)){
+                return true;
+            }
+        }
+       return false;
     }
 }
