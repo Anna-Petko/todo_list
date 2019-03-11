@@ -1,4 +1,5 @@
-package com.company;
+package Model;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -64,4 +65,15 @@ public class TasksList {
         }
        return false;
     }
+
+    public boolean containsDateName(LocalDate deadline){
+        for(Task task: tasksList){
+            if (task.getDeadline().isEqual(deadline)){
+                return true;
+            }
+        }
+        return false;
+    }
 }
+
+
