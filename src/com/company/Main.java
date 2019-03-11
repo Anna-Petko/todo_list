@@ -1,17 +1,16 @@
 package com.company;
 
+import Controller.ToDoController;
+
 public class Main {
     public static void main(String[] args) {
 
         //Show the Main menu
-        Menu menu = new Menu();
-        menu.chooseCommand();
+        //ToDoInterface menu = new ToDoInterface();
+       // menu.showMenu();
+        ToDoController service = new ToDoController();
+        service.chooseCommand();
 
-
-        //Print out all tasks from TaskList object
-       // for (int i = 0; i < collection.getTaskListSize(); i++) {
-         //   System.out.println(collection.getTask(i));
-        //}
 
     }
 }

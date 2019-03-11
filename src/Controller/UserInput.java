@@ -1,4 +1,6 @@
-package com.company;
+package Controller;
+import Model.Task;
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -12,8 +14,6 @@ public class UserInput {
     public String getUserInput(){
         return userInput.nextLine();
     }
-
-
 
 
     public void insertDataForTask(ArrayList<Task> tasksList){
