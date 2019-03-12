@@ -1,9 +1,7 @@
-package View;
-
+package Controller;
 import java.util.Scanner;
 
-public class Reader
-{
+public class Reader{
     private static Scanner scanner = new Scanner(System.in);
 
     public static int readInt()
@@ -20,3 +18,4 @@ public class Reader
     }
 
 }
+

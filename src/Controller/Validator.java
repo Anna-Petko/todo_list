@@ -33,9 +33,7 @@ public class Validator
         }
     }
 
-
-    public static int validateInt(int min, int max)
-    {
+    public static int validateInt(int min, int max) {
         // 5 + enter
         // title1 TODO discuus scanner
         //TODO use try and catch
@@ -50,5 +48,4 @@ public class Validator
 
         return 0;
     }
-
 }
