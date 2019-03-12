@@ -18,21 +18,6 @@ public class Task implements Comparable<Task> {
         this.formatter = formatter;
     }
 
-    //Update task's name
-    public void setTasksName(String tasksName){
-        this.tasksName = tasksName;
-    }
-
-    //Update task's date
-    public void setDeadline(LocalDate deadline){
-        this.deadline = deadline;
-    }
-
-    //Update task's project
-    public void setProjectName(String projectName){
-        this.projectName = projectName;
-    }
-
     //Update task's status
     public void setTaskStatus(String status){
         this.status = status;

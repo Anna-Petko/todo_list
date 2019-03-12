@@ -8,7 +8,6 @@ public class Main {
 
         ToDoController service = new ToDoController();
         service.chooseCommand();
-
     }
 }
 

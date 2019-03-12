@@ -7,26 +7,18 @@ import java.util.Scanner;
 
 
 public class TasksList {
+
     private ArrayList<Task> tasksList;
 
     public TasksList(){
-       tasksList = new ArrayList<>();
-    }
-
-    public void addTasksToList(Task task){
-        tasksList.add(task);
-    }
-
-    public String getTask(int index){
-        return tasksList.get(index).toString();
+        tasksList = new ArrayList<>();
     }
 
     public int getTaskListSize(){
         return tasksList.size();
     }
 
-    public void removeTask(int index)
-    {
+    public void removeTask(int index){
         tasksList.remove(index);
     }
 
@@ -42,19 +34,9 @@ public class TasksList {
         LocalDate updatedDeadline = Validator.validatDate();
         String updatedProjectName = x.nextLine();
         String updatedStatus = x.nextLine();
-        Task task = new Task(updatedProjectName, updatedDeadline, null,updatedProjectName, updatedStatus );
+        Task task = new Task(updatedTaskName, updatedDeadline, null,updatedProjectName, updatedStatus );
         tasksList.set(index, task);
 
-
-        tasksList.get(index).setTasksName(updatedTaskName);
-        tasksList.get(index).setDeadline(updatedDeadline);
-        tasksList.get(index).setProjectName(updatedProjectName);
-        tasksList.get(index).setTaskStatus(updatedStatus);
-    }
-
-    //Deleting a task from a task list
-    public void removeTask(Task task) {
-        tasksList.remove(task);
     }
 
     public void showTaskByProjectName(String projectName) {
@@ -69,11 +51,9 @@ public class TasksList {
         }
     }
 
-    public void showAllTaskByDate()
-    {
+    public void showAllTaskByDate() {
         Collections.sort(tasksList);
-        for (int i = 0; i < tasksList.size(); i++)
-        {
+        for (int i = 0; i < tasksList.size(); i++) {
             System.out.println(i + ") " + tasksList.get(i));
         }
         //TODO what happened if we don\t have any task in the list
@@ -101,7 +81,7 @@ public class TasksList {
                 return true;
             }
         }
-       return false;
+        return false;
     }
 
     public boolean containsDateName(LocalDate deadline){

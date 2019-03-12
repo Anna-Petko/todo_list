@@ -55,9 +55,9 @@ public class ToDoController {
 
         collection.updateTask(index);
 
-        //collection.markTaskAsDone(index);
+        collection.markTaskAsDone(index);
 
-        //collection.removeTask(index);
+        collection.removeTask(index);
 
     }
     private void showTaskList() {
