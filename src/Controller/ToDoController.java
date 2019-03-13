@@ -10,11 +10,21 @@ import java.util.ArrayList;
 public class ToDoController {
     private TasksList collection;
     private boolean programIsRunning = true;
-   // private Scanner userInput = new Scanner(System.in);
-   private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+    // private Scanner userInput = new Scanner(System.in);
+    private transient DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
     public ToDoController(){
         this.collection = new TasksList();
+    }
+public void loadFile()
+{
+    collection = SaveToAFile.load();
+
+}
+
+    public void saveFile()
+    {
+        SaveToAFile.save(collection);
     }
 
     public void chooseCommand(){
@@ -30,7 +40,7 @@ public class ToDoController {
                     break;
                 case "3":
                     System.out.println("edit");
-                    nour();
+                    editTask();
                     break;
                 case "4":
                     saveAndQuit();
@@ -43,7 +53,7 @@ public class ToDoController {
         }
     }
 
-    public void nour()
+    public void editTask()
     {
         System.out.println("we will remove");
         collection.showAllTaskByDate();
@@ -63,10 +73,10 @@ public class ToDoController {
         String menuOption = Reader.readLine(); //userInput.nextLine();
         // validate user input
         switch (menuOption) {
-            case "1":
+            case "3":
                 showTaskListByDate();
                 break;
-            case "3":
+            case "1":
                 collection.showAllTaskByDate();
                 break;
             case "2":
@@ -79,6 +89,7 @@ public class ToDoController {
         // Logic to save the program in a file
         //flag to finish the while
         programIsRunning = false;
+        saveFile();
     }
 
     private void showTaskListByProjectName() {
@@ -92,18 +103,18 @@ public class ToDoController {
             System.out.println("There is no such project. Try other name");
         }
     }
-        private void showTaskListByDate(){
-            System.out.println("Please insert the date");
-            String deadline = Reader.readLine();//userInput.nextLine();
-            LocalDate date = Validator.validatDate();//LocalDate.parse(deadline, formatter);//Validator.validatDate();
-            if (collection.getTaskListSize() == 0) {
-                System.out.println("Your task list is empty. Please create and add a task");
-            } else if (collection.containsDateName(date)) {
-                collection.showTasksByDate(date);
-            } else {
-                System.out.println("There are no tasks for this date. Try another one");
-            }
+    private void showTaskListByDate(){
+        System.out.println("Please insert the date");
+        String deadline = Reader.readLine();//userInput.nextLine();
+        LocalDate date = Validator.validatDate();//LocalDate.parse(deadline, formatter);//Validator.validatDate();
+        if (collection.getTaskListSize() == 0) {
+            System.out.println("Your task list is empty. Please create and add a task");
+        } else if (collection.containsDateName(date)) {
+            collection.showTasksByDate(date);
+        } else {
+            System.out.println("There are no tasks for this date. Try another one");
         }
+    }
 
     private void insertDataForTask(ArrayList<Task> tasksList){
         Printer.getTaskTitle();
@@ -120,6 +131,6 @@ public class ToDoController {
         String status = Reader.readLine(); //userInput.nextLine();
 
         //Here we add a created task to a created taskList
-        tasksList.add(new Task(taskName, deadline, formatter, projectName, status));
+        tasksList.add(new Task(taskName, deadline,  projectName, status));
     }
 }

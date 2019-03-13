@@ -1,14 +1,17 @@
 package Model;
 import Controller.Validator;
+
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
 
 
-public class TasksList {
+public class TasksList implements Serializable {
 
     private ArrayList<Task> tasksList;
+    private static final long serialVersionUID =1L;
 
     public TasksList(){
         tasksList = new ArrayList<>();
@@ -34,7 +37,7 @@ public class TasksList {
         LocalDate updatedDeadline = Validator.validatDate();
         String updatedProjectName = x.nextLine();
         String updatedStatus = x.nextLine();
-        Task task = new Task(updatedTaskName, updatedDeadline, null,updatedProjectName, updatedStatus );
+        Task task = new Task(updatedTaskName, updatedDeadline,updatedProjectName, updatedStatus );
         tasksList.set(index, task);
 
     }
