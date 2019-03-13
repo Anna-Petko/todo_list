@@ -1,36 +1,23 @@
 package Model;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-public class Task implements Comparable<Task> {
+public class Task implements Comparable<Task>, Serializable {
     private String tasksName;
     private LocalDate deadline;
     private String projectName;
     private String status;
-    private DateTimeFormatter formatter; //TODO to delete
+    private static final long serialVersionUID =1L;
+   // private LocalDate formatter; //TODO to delete
 
     //Constructor to create a task
-    public Task(String tasksName, LocalDate deadline, DateTimeFormatter formatter, String projectName, String status) {
+    public Task(String tasksName, LocalDate deadline, String projectName, String status) {
         this.tasksName = tasksName;
         this.deadline = deadline;
         this.projectName = projectName;
         this.status = status;
-        this.formatter = formatter;
-    }
-
-    //Update task's name
-    public void setTasksName(String tasksName){
-        this.tasksName = tasksName;
-    }
-
-    //Update task's date
-    public void setDeadline(LocalDate deadline){
-        this.deadline = deadline;
-    }
-
-    //Update task's project
-    public void setProjectName(String projectName){
-        this.projectName = projectName;
+        //this.formatter = formatter;
     }
 
     //Update task's status

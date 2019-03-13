@@ -1,6 +1,5 @@
 package View;
 
-
 public class Printer {
 
     public static void showMenu() {
@@ -38,10 +37,4 @@ public class Printer {
         System.out.println("(1) sort task by due date");
         System.out.println("(2) filter tasks by project");
     }
-
-//    public static void listTasks(ArrayList<Task> collection) {
-//        for (Task t: collection) {
-//            System.out.println(t);
-//        }
-//    }
 }

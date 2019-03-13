@@ -1,5 +1,4 @@
 package Controller;
-
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
@@ -10,8 +9,7 @@ public class Validator
     private  static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
 
-    public static LocalDate validatDate()
-    {
+    public static LocalDate validatDate(){
         LocalDate deadline;
         System.out.println("please enter date of this format>  dd/MM/yyyy");
 
@@ -33,9 +31,7 @@ public class Validator
         }
     }
 
-
-    public static int validateInt(int min, int max)
-    {
+    public static int validateInt(int min, int max) {
         // 5 + enter
         // title1 TODO discuus scanner
         //TODO use try and catch
@@ -50,5 +46,4 @@ public class Validator
 
         return 0;
     }
-
 }
