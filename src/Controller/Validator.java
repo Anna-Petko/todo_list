@@ -3,31 +3,23 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
-public class Validator
-{
+public class Validator {
     private static Scanner scanner = new Scanner(System.in);
     private  static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
 
-    public static LocalDate validatDate(){
-        LocalDate deadline;
-        System.out.println("please enter date of this format>  dd/MM/yyyy");
+    public static LocalDate validateDate(){
 
-        while (true)
-        {
+        while (true){
             //TODO
             String dateString = scanner.nextLine();
-            try
-            {
-                 deadline = LocalDate.parse(dateString, formatter);
+            try {
+                 LocalDate deadline = LocalDate.parse(dateString, formatter);
                  return deadline;
-
             }
-            catch (Exception e)
-            {
-                System.out.println("please enter the RIGTH FORMAT> ");
+            catch (Exception e){
+                System.out.println("please enter the right format ");
             }
-
         }
     }
 
@@ -40,10 +32,8 @@ public class Validator
         //TODO fix th if statment
         if (dsf >= min && dsf <max)
             return dsf;
-
         String s = scanner.nextLine();
         int fd = Integer.parseInt(s);
-
         return 0;
     }
 }

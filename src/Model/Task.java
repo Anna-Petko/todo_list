@@ -1,15 +1,13 @@
 package Model;
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 public class Task implements Comparable<Task>, Serializable {
     private String tasksName;
     private LocalDate deadline;
     private String projectName;
     private String status;
-    private static final long serialVersionUID =1L;
-   // private LocalDate formatter; //TODO to delete
+    private static final long serialVersionUID = 1L;
 
     //Constructor to create a task
     public Task(String tasksName, LocalDate deadline, String projectName, String status) {
@@ -17,7 +15,6 @@ public class Task implements Comparable<Task>, Serializable {
         this.deadline = deadline;
         this.projectName = projectName;
         this.status = status;
-        //this.formatter = formatter;
     }
 
     //Update task's status
@@ -34,8 +31,7 @@ public class Task implements Comparable<Task>, Serializable {
     }
 
     @Override
-    public int compareTo(Task otherTask)
-    {
+    public int compareTo(Task otherTask) {
         return this.deadline.compareTo(otherTask.getDeadline());
     }
 
