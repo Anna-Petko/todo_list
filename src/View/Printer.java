@@ -1,7 +1,6 @@
 package View;
 
 public class Printer {
-
     public static void showMenu() {
         System.out.println(">> Welcome to ToDoLy");
         System.out.println(">> You have X tasks todo and Y tasks are done! ");
@@ -22,7 +21,7 @@ public class Printer {
     }
 
     public static void getTaskDate(){
-        System.out.println("Create a task's date");
+        System.out.println("Create a task's date. Please enter date of the format  dd/MM/yyyy");
     }
 
     public static void getTaskProject(){
@@ -36,5 +35,12 @@ public class Printer {
     public static void taskListMenu() {
         System.out.println("(1) sort task by due date");
         System.out.println("(2) filter tasks by project");
+    }
+
+    public static void editTaskMenu(){
+        System.out.println("Please choose an option");
+        System.out.println("(1) update task");
+        System.out.println("(2) mark task as done");
+        System.out.println("(3) remove task");
     }
 }

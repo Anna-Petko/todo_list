@@ -3,21 +3,18 @@ import Model.TasksList;
 import java.io.*;
 
 public class SaveToAFile {
-
-    public static TasksList load()
-    {
+    public static TasksList load() {
         TasksList t = new TasksList();
         File f = new File("t.txt");
-        if  (f.exists()) {
-            FileInputStream fis = null;
 
+        if  (f.exists()){
+            FileInputStream fis = null;
             try {
                 fis = new FileInputStream(new File("t.txt"));
                 ObjectInputStream ios = new ObjectInputStream(fis);
 
                 t = (TasksList) ios.readObject();
-                System.out.println("the array after loading " + t);
-
+               // System.out.println("the array after loading " + t);
 
                 fis.close();
                 ios.close();
@@ -27,10 +24,7 @@ public class SaveToAFile {
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
             }
-
         }
-
-
         return t;
     }
 
