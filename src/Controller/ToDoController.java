@@ -61,27 +61,30 @@ public class ToDoController {
     }
 
     public void editTask(){
-        System.out.println("All tasks");
-        collection.showAllTaskByDate();
-        System.out.println("Please choose a task");
-        int index = Reader.readInt();
-        Printer.editTaskMenu();
-        String option = Reader.readLine();
-        switch(option){
-            case "1":
-                System.out.println("Update");
-                collection.updateTask(index);
-                break;
-            case "2":
-                System.out.println("Mark as done");
-                collection.markTaskAsDone(index);
-                break;
-            case "3":
-                System.out.println("Remove");
-                collection.removeTask(index);
-                break;
+        if(collection.getSize() == 0) {
+            System.out.println("Your collection is empty. Please create and add a task ");
+        } else {
+            System.out.println("Your tasks");
+            collection.showAllTaskByDate();
+            System.out.println("Please choose a task");
+            int index = Reader.readInt();
+            Printer.editTaskMenu();
+            String option = Reader.readLine();
+            switch (option) {
+                case "1":
+                    System.out.println("Update");
+                    collection.updateTask(index);
+                    break;
+                case "2":
+                    System.out.println("Mark as done");
+                    collection.markTaskAsDone(index);
+                    break;
+                case "3":
+                    System.out.println("Remove");
+                    collection.removeTask(index);
+                    break;
+            }
         }
-
         //TODO check that the index is int, check that this index is in the list
     }
 

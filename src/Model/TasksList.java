@@ -15,6 +15,10 @@ public class TasksList implements Serializable {
         tasksList = new ArrayList<>();
     }
 
+    public int getSize(){
+        return tasksList.size();
+    }
+
     public void removeTask(int index){
         tasksList.remove(index-1);
         System.out.println("Your task was removed");
