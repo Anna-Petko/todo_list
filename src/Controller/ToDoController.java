@@ -4,6 +4,7 @@ import Model.TasksList;
 import View.Printer;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class ToDoController {
     private TasksList collection;
@@ -67,25 +68,30 @@ public class ToDoController {
             System.out.println("Your tasks");
             collection.showAllTaskByDate();
             System.out.println("Please choose a task");
-            int index = Reader.readInt();
-            Printer.editTaskMenu();
-            String option = Reader.readLine();
-            switch (option) {
-                case "1":
-                    System.out.println("Update");
-                    collection.updateTask(index);
-                    break;
-                case "2":
-                    System.out.println("Mark as done");
-                    collection.markTaskAsDone(index);
-                    break;
-                case "3":
-                    System.out.println("Remove");
-                    collection.removeTask(index);
-                    break;
+            //int index = Reader.readInt();
+            Scanner scanner=new Scanner(System.in);
+            int index = scanner.nextInt();
+            if(Validator.validateInt(index,collection)){
+                Printer.editTaskMenu();
+                String option = Reader.readLine();
+                switch (option) {
+                    case "1":
+                        System.out.println("Update");
+                        collection.updateTask(index);
+                        break;
+                    case "2":
+                        System.out.println("Mark as done");
+                        collection.markTaskAsDone(index);
+                        break;
+                    case "3":
+                        System.out.println("Remove");
+                        collection.removeTask(index);
+                        break;
+                }
+            }else{
+                showTaskList();
             }
         }
-        //TODO check that the index is int, check that this index is in the list
     }
 
     private void saveAndQuit(){
