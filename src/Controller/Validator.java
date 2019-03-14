@@ -1,4 +1,6 @@
 package Controller;
+import Model.TasksList;
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
@@ -22,17 +24,14 @@ public class Validator {
         }
     }
 
-    public static int validateInt(int min, int max) {
-        // 5 + enter
-        // title1 TODO discuus scanner
-        //TODO use try and catch
-        int dsf = scanner.nextInt();
-        scanner.nextLine();
-        //TODO fix th if statment
-        if (dsf >= min && dsf <max)
-            return dsf;
-        String s = scanner.nextLine();
-        int fd = Integer.parseInt(s);
-        return 0;
+    public static Boolean validateInt(int index ,TasksList collection ) {
+        try {
+            if (collection.getSize() >= index) {
+                return true;
+            }
+        } catch (Exception e) {
+            System.out.println("Wrong");
+        }
+        return false;
     }
 }
