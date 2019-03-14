@@ -6,6 +6,7 @@ public class SaveToAFile {
     public static TasksList load() {
         TasksList t = new TasksList();
         File f = new File("t.txt");
+
         if  (f.exists()){
             FileInputStream fis = null;
             try {

@@ -36,4 +36,11 @@ public class Printer {
         System.out.println("(1) sort task by due date");
         System.out.println("(2) filter tasks by project");
     }
+
+    public static void editTaskMenu(){
+        System.out.println("Please choose an option");
+        System.out.println("(1) update task");
+        System.out.println("(2) mark task as done");
+        System.out.println("(3) remove task");
+    }
 }

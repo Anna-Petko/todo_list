@@ -9,7 +9,6 @@ public class Validator {
 
 
     public static LocalDate validateDate(){
-
         while (true){
             //TODO
             String dateString = scanner.nextLine();
