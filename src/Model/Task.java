@@ -2,7 +2,6 @@
  * This is a class that
  */
 
-
 package Model;
 import java.io.Serializable;
 import java.time.LocalDate;

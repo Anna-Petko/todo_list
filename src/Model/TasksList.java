@@ -1,10 +1,8 @@
 package Model;
-import Controller.Validator;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Scanner;
 
 
 public class TasksList implements Serializable {
@@ -36,17 +34,16 @@ public class TasksList implements Serializable {
 
     }
 
-    public Task createTask(String title, LocalDate deadline, String projectName, String status)
-    {
+    public Task createTask(String title, LocalDate deadline, String projectName, String status) {
         return new Task(title, deadline,projectName, status );
     }
-    public void updateTask(int index, String updatedTaskName, LocalDate updatedDeadline, String updatedProjectName, String updatedStatus)
-    {
+
+    public void updateTask(int index, String updatedTaskName,
+                           LocalDate updatedDeadline, String updatedProjectName, String updatedStatus){
+
         tasksList.set(index-1, createTask(updatedTaskName, updatedDeadline,updatedProjectName, updatedStatus));
 
-
     }
-
 
     public void showTaskByProjectName(String projectName) {
         ArrayList<Task> filteredTasks = new ArrayList<>();
@@ -65,7 +62,6 @@ public class TasksList implements Serializable {
         for (int i = 0; i < tasksList.size(); i++) {
             System.out.println(i + 1 +") " + tasksList.get(i));
         }
-      //If there is no tasks in the  list
     }
 
     public ArrayList<Task> getTasksList(){
