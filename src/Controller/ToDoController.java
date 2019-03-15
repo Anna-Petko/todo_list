@@ -8,6 +8,7 @@ import java.util.Scanner;
 
 public class ToDoController {
     private TasksList collection;
+    private Scanner scanner = new Scanner(System.in).useDelimiter("\n");
     private boolean programIsRunning = true;
 
     public ToDoController(){
@@ -24,13 +25,13 @@ public class ToDoController {
     public void chooseCommand(){
         while(programIsRunning) {
             Printer.showMenu();
-            String option = Reader.readLine();
+            String option = scanner.next();
             switch (option) {
                 case "1":
                     showTaskList();
                     break;
                 case "2":
-                    addNewTask(collection.getTasksList());
+                    addNewTask();
                     break;
                 case "3":
                     System.out.println("edit");
@@ -49,15 +50,20 @@ public class ToDoController {
 
     private void showTaskList() {
         Printer.taskListMenu();
-        String menuOption = Reader.readLine();
+        String menuOption = scanner.next();
         // validate user input
-        switch (menuOption) {
-            case "1":
-                collection.showAllTaskByDate();
-                break;
-            case "2":
-                collection.showTaskByProjectName(Reader.readLine());
-                break;
+        if(collection.getSize() == 0) {
+            System.out.println("Your collection is empty. Please create and add a task ");
+        } else {
+            switch (menuOption) {
+                case "1":
+                    collection.showAllTaskByDate();
+                    break;
+                case "2":
+                    System.out.println("Insert the name of the project");
+                    collection.showTaskByProjectName(scanner.next());
+                    break;
+            }
         }
     }
 
@@ -69,29 +75,52 @@ public class ToDoController {
             collection.showAllTaskByDate();
             System.out.println("Please choose a task");
             //int index = Reader.readInt();
-            Scanner scanner=new Scanner(System.in);
-            int index = scanner.nextInt();
-            if(Validator.validateInt(index,collection)){
+            Scanner scanner = new Scanner(System.in);
+            int index = Validator.validateInt(1, collection.getSize());
+
+           // if(Validator.validateInt(index, collection.getSize())){
                 Printer.editTaskMenu();
-                String option = Reader.readLine();
+                String option = scanner.next();
                 switch (option) {
                     case "1":
                         System.out.println("Update");
-                        collection.updateTask(index);
+                        updateTask(index);
                         break;
                     case "2":
                         System.out.println("Mark as done");
-                        collection.markTaskAsDone(index);
+                        markTaskAsDone(index);
                         break;
                     case "3":
                         System.out.println("Remove");
                         collection.removeTask(index);
                         break;
                 }
-            }else{
-                showTaskList();
-            }
+//            }else{
+//                showTaskList();
+//            }
         }
+    }
+
+    private void markTaskAsDone(int index)
+    {
+        System.out.println("Mark task as done.Insert 'done'");
+        String newStatus = scanner.next();
+        collection.markTaskAsDone(index, newStatus);
+    }
+
+    private void updateTask(int index)
+    {
+        System.out.println("insert new name");
+        String updatedTaskName = scanner.next();
+        System.out.println("insert new date");
+        LocalDate updatedDeadline = Validator.validateDate();
+        System.out.println("insert project");
+        String updatedProjectName = scanner.next();
+        System.out.println("insert status");
+        String updatedStatus = scanner.next();
+
+        collection.updateTask(index, updatedTaskName, updatedDeadline,updatedProjectName, updatedStatus );
+
     }
 
     private void saveAndQuit(){
@@ -101,20 +130,20 @@ public class ToDoController {
         saveFile();
     }
 
-    public void addNewTask(ArrayList<Task> tasksList){
+    public void addNewTask(){
         Printer.getTaskTitle();
-        String taskName = Reader.readLine();
+        String taskName = scanner.next();
 
         Printer.getTaskDate();
         LocalDate deadline = Validator.validateDate();
 
         Printer.getTaskProject();
-        String projectName = Reader.readLine();
+        String projectName = scanner.next();
 
         Printer.getTaskStatus();
-        String status = Reader.readLine();
+        String status = scanner.next();
 
         //Here we add a created task to a created taskList
-        tasksList.add(new Task(taskName, deadline,  projectName, status));
+        collection.addTask(taskName, deadline,  projectName, status);
     }
 }

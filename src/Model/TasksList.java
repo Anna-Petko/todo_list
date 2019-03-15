@@ -25,27 +25,28 @@ public class TasksList implements Serializable {
 
     }
 
-    public void markTaskAsDone(int index){
-        System.out.println("Mark task as done.Insert 'done'");
-        Scanner x = new Scanner(System.in);
-        String newStatus = x.nextLine();
+    public void markTaskAsDone(int index, String newStatus){
+
         tasksList.get(index-1).setTaskStatus(newStatus);
     }
 
-    public void updateTask(int index){
-        Scanner x = new Scanner(System.in);
-        System.out.println("insert new name");
-        String updatedTaskName = x.nextLine();
-        System.out.println("insert new date");
-        LocalDate updatedDeadline = Validator.validateDate();
-        System.out.println("insert project");
-        String updatedProjectName = x.nextLine();
-        System.out.println("insert status");
-        String updatedStatus = x.nextLine();
-        Task task = new Task(updatedTaskName, updatedDeadline,updatedProjectName, updatedStatus );
-        tasksList.set(index-1, task);
+    public void addTask(String title, LocalDate deadline, String projectName, String status)
+    {
+        tasksList.add(createTask(title, deadline,projectName, status));
 
     }
+
+    public Task createTask(String title, LocalDate deadline, String projectName, String status)
+    {
+        return new Task(title, deadline,projectName, status );
+    }
+    public void updateTask(int index, String updatedTaskName, LocalDate updatedDeadline, String updatedProjectName, String updatedStatus)
+    {
+        tasksList.set(index-1, createTask(updatedTaskName, updatedDeadline,updatedProjectName, updatedStatus));
+
+
+    }
+
 
     public void showTaskByProjectName(String projectName) {
         ArrayList<Task> filteredTasks = new ArrayList<>();
