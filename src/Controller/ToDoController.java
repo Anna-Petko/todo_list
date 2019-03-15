@@ -1,9 +1,7 @@
 package Controller;
-import Model.Task;
 import Model.TasksList;
 import View.Printer;
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ToDoController {
@@ -77,9 +75,7 @@ public class ToDoController {
             //int index = Reader.readInt();
             Scanner scanner = new Scanner(System.in);
             int index = Validator.validateInt(1, collection.getSize());
-
-           // if(Validator.validateInt(index, collection.getSize())){
-                Printer.editTaskMenu();
+             Printer.editTaskMenu();
                 String option = scanner.next();
                 switch (option) {
                     case "1":
@@ -95,9 +91,6 @@ public class ToDoController {
                         collection.removeTask(index);
                         break;
                 }
-//            }else{
-//                showTaskList();
-//            }
         }
     }
 

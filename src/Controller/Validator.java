@@ -1,6 +1,4 @@
 package Controller;
-import Model.TasksList;
-
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
