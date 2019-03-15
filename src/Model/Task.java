@@ -1,5 +1,6 @@
 /**
- * This is a class that
+ * This is a model of a task. Class includes getter and setter methods, overriding.
+ * Implemented comparable and serializable interface to make sorting.
  */
 
 package Model;
@@ -34,11 +35,13 @@ public class Task implements Comparable<Task>, Serializable {
         return deadline;
     }
 
+    //Use this methods to make sorting by due date
     @Override
     public int compareTo(Task otherTask) {
         return this.deadline.compareTo(otherTask.getDeadline());
     }
 
+    //It returns an object
     @Override
     public String toString(){
         return tasksName + ", " + deadline  + ", " + projectName + ", " + status;
