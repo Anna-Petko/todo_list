@@ -1,21 +1,16 @@
+/**
+ * This is a main class, the root of the app. Here ToDOController object is being created,
+ * called methods for load file with saved tasks, show menu for user.
+ **/
+
 package com.company;
+import Controller.ToDoController;
 
 public class Main {
     public static void main(String[] args) {
-
-        //Create a new TaskList object that will store added tasks
-        TasksList collection = new TasksList();
-
-        //Create a new UserInput object
-        UserInput ui = new UserInput();
-        //Show added tasks into TaskList object
-        ui.insertDataForTask(collection.getTasksList());
-
-        //Print out all tasks from TaskList object
-        for (int i = 0; i < collection.getTaskListSize(); i++) {
-            System.out.println(collection.getTask(i));
-        }
-
+        ToDoController service = new ToDoController();
+        service.loadFile();
+        service.chooseCommand();
     }
 }
 
