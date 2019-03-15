@@ -1,6 +1,5 @@
 #todo_list
 
-This project was made as 
 
 <strong>Todo_list</strong> is a simple application to create, store and manage tasks.
 
