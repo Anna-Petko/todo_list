@@ -1,3 +1,8 @@
+/**
+ * This is a class to create TaskList (ArrayList type) where user can add and store tasks.
+ * Implemented methods for task manipulation (add, create, remove, mark as done, update).
+ */
+
 package Model;
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -9,10 +14,12 @@ public class TasksList implements Serializable {
     private ArrayList<Task> tasksList;
     private static final long serialVersionUID = 1L;
 
+    //Constructor for TaskList
     public TasksList(){
         tasksList = new ArrayList<>();
     }
 
+    //Size of a collection
     public int getSize(){
         return tasksList.size();
     }
@@ -45,6 +52,7 @@ public class TasksList implements Serializable {
 
     }
 
+    //Method to show tasks from a collection with inserted by user project name
     public void showTaskByProjectName(String projectName) {
         ArrayList<Task> filteredTasks = new ArrayList<>();
         for (Task t : tasksList) {
@@ -56,7 +64,7 @@ public class TasksList implements Serializable {
             System.out.println("Your task for the project "+ projectName + ": " + filteredTasks.get(i));
         }
     }
-
+    //Method to make a sorting  by due date
     public void showAllTaskByDate() {
         Collections.sort(tasksList);
         for (int i = 0; i < tasksList.size(); i++) {

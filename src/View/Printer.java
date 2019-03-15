@@ -1,3 +1,7 @@
+/**
+ * This is class that contains methods for printing out info for user.
+ */
+
 package View;
 
 public class Printer {

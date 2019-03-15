@@ -1,3 +1,7 @@
+/**
+ * This is a class for handling exception (when user insert wrong format for a date or wrong input for choosing a task)
+ */
+
 package Controller;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -22,7 +26,6 @@ public class Validator {
         }
     }
 
-    //TODO speak about scanner
     public static int validateInt(int min ,int max )
     {
         while(true) {

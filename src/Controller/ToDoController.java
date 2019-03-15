@@ -1,3 +1,9 @@
+/**
+ * This is a class that connects business logic and view. Here we initialize TaskList collection, Scanner to take user input.
+ * Program reads saved tasks, can add and save tasks (after program will be over) into task list.
+ * User communication is provided here. User can make some actions with tasks and save them.
+ */
+
 package Controller;
 import Model.TasksList;
 import View.Printer;
@@ -12,10 +18,13 @@ public class ToDoController {
     public ToDoController(){
         this.collection = new TasksList();
     }
+
+    // Load file and  read collection from file
     public void loadFile() {
         collection = SaveToAFile.load();
     }
 
+    //Save created task list into file
     public void saveFile() {
         SaveToAFile.save(collection);
     }

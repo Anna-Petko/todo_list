@@ -1,8 +1,13 @@
+/**
+ * This is a class to save array list which contains tasks into object being stored in the file.
+ */
+
 package Controller;
 import Model.TasksList;
 import java.io.*;
 
 public class SaveToAFile {
+    // If the file was created, program reads it
     public static TasksList load() {
         TasksList t = new TasksList();
         File f = new File("t.txt");
@@ -27,7 +32,6 @@ public class SaveToAFile {
         }
         return t;
     }
-
     public static void save(TasksList t)
     {
         FileOutputStream fos = null;
